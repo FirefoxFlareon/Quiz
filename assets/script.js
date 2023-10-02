@@ -7,18 +7,33 @@ var questionChoicesEl = document.querySelector("#questionChoices")
 startButton.addEventListener("click", function(){
     startPage.classList.add("hide")
     quizPage.classList.remove("hide")
-    console.log(questions[0].questionText)
+    
 })
 
 var questions = [
     {
-        questionText: "Question 1 goes here",
-        choices: ["answer1", "answer2", "answer3"],
-        answer: "answer1",
+        questionText: "When using the console.log() command, where will your output be shown?",
+        choices: ["On the page", "In your html file", "In the console", "In your diary"],
+        answer: "In the console",
     },
     {
-        questionText: "Question 2 goes here",
-        choices: ["answer1", "answer2", "answer3"],
-        answer: "answer1",
+        questionText: "when adding padding, border, or margin, what should you always keep in mind? ",
+        choices: ["TRBL", "BUBL", "HUBL", "STBL"],
+        answer: "TRBL",
+    },
+    {
+        questionText: "Which of the following is NOT a primitive data type?",
+        choices: ["Boolean", "String", "Symbol", "Array"],
+        answer: "Array",
+    },
+    {
+        questionText: "If you wanted a number to to be read as a string, what would you put around it?",
+        choices: ["Curly brackets", "Square brackets", "Quotation marks", "Parentheses"],
+        answer: "Quotation marks",
+    },
+    {
+        questionText: "If you wanted to go through a block of code multiple times, you could use a....",
+        choices: ["querySelector", "eventListener", "Variable", "For loop"],
+        answer: "For loop",
     },
 ]

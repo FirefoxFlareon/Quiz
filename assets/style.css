@@ -1,3 +1,10 @@
 .hide {
     display: none;
 }
+
+body {
+    background-color: darkseagreen;
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Roboto Slab', serif;
+}
