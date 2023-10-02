@@ -2,12 +2,16 @@ var startButton = document.querySelector("#startButton")
 var startPage = document.querySelector("#startPage")
 var quizPage = document.querySelector("#quizPage")
 var questionTextEl = document.querySelector("#questionText")
-var questionChoicesEl = document.querySelector("#questionChoices")
+var questionChoicesEl = document.querySelectorAll(".Choice")
+var scoreEl = document.querySelector("#score")
+var currentQuestionIndex = 0
+var currentScore = 0
+
 
 startButton.addEventListener("click", function(){
     startPage.classList.add("hide")
     quizPage.classList.remove("hide")
-    
+    runQuiz();
 })
 
 var questions = [
@@ -37,3 +41,40 @@ var questions = [
         answer: "For loop",
     },
 ]
+
+function runQuiz() {
+    if (currentQuestionIndex < questions.length){
+        var currentQuestion = questions[currentQuestionIndex]
+        questionTextEl.textContent = currentQuestion.questionText
+
+       for (var i=0; i < questionChoicesEl.length; i++){
+        questionChoicesEl[i].textContent = currentQuestion.choices[i]
+       }
+    } else {
+        questionTextEl.textContent = "How'd you do?"
+
+        for (var i=0; i < questionChoicesEl.length; i++){
+            questionChoicesEl[i].classList.add("hide")
+        }
+    }
+}
+
+for (var i=0; i < questionChoicesEl.length; i++){
+    questionChoicesEl[i].addEventListener("click", function(e){
+        var clickedChoice = e.target.textContent
+        answerResult(clickedChoice, questions[currentQuestionIndex].answer)
+    })
+}
+
+
+
+function answerResult(clickedChoice) {
+    if (clickedChoice === questions[currentQuestionIndex].answer) {
+        currentScore++;
+    }
+
+    currentQuestionIndex++;
+    runQuiz();
+
+    scoreEl.textContent = "Your Score: " + currentScore;
+}
